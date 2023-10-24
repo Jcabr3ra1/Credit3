@@ -1,0 +1,56 @@
+<div class="content mt-5">
+    <div class="col-md-6 offset-md-3">
+        <h3 class="text-center">Registrar Partido</h3>
+        <form (ngSubmit)="onSubmit()" #partidoForm="ngForm">
+            <div class="content mt-5">
+                <div class="col-md-6 offset-md-3">
+                    <h3 class="text-center">Registrar Partido</h3>
+                    <form (ngSubmit)="onSubmit()" #partidoForm="ngForm">
+                        <div class="form-group">
+                            <label for="nombrePatido">nombrePatido :</label>
+                            <input type="text" class="form-control" id="nombrePatido" placeholder="Nombre"
+                                [(ngModel)]="partido.nombrePatido" name="nombrePatido" required
+                                placeholder="Digite un nombrePatido" #nombrePatido="ngModel">
+                            <div class="alert alert-danger"
+                                *ngIf="nombrePatido.invalid && (nombrePatido.dirty || nombrePatido.touched)">
+                                <div *ngIf="nombrePatido.errors['required']">
+                                    Digite el nombrePatido por favor
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lema">lema :</label>
+                            <input type="lema" class="form-control" id="lema" placeholder="name@gmail.com"
+                                [(ngModel)]="partido.lema" name="lema"
+                                pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+                                required placeholder="Digite un lema" #lema="ngModel"> <!-- Cambio aquí -->
+                            <div class="alert alert-danger" *ngIf="lema.invalid && (lema.dirty || lema.touched)">
+                                <div *ngIf="lema.errors['required']">
+                                    Digite su lema por favor
+                                </div>
+                                <div *ngIf="lema.errors['pattern']">
+                                    Por favor digite el lema con el siguiente formato: usuario55@gmail.com
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inscritos">inscritos :</label>
+                            <input type="inscritos" class="form-control" id="inscritos" placeholder="name@gmail.com"
+                                [(ngModel)]="partido.inscritos" name="inscritos"
+                                pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+                                required placeholder="Digite un inscritos" #inscritos="ngModel"> <!-- Cambio aquí -->
+                            <div class="alert alert-danger" *ngIf="inscritos.invalid && (inscritos.dirty || inscritos.touched)">
+                                <div *ngIf="inscritos.errors['required']">
+                                    Digite su inscritos por favor
+                                </div>
+                                <div *ngIf="inscritos.errors['pattern']">
+                                    Por favor digite el inscritos con el siguiente formato: usuario55@gmail.com
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block"
+                            [disabled]="!partidoForm.form.valid">Guardar</button>
+                        <button (click)="irALaListaDePartido()" class="btn btn-primary">Cancelar</button>
+                    </form>
+                </div>
+            </div>

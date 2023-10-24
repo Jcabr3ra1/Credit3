@@ -1,0 +1,28 @@
+<!-- usuarios.component.html -->
+
+<div class="permisos-list">
+    <h1 class="text-center">Lista de Permisos</h1>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button (click)="irALaCrearDePermiso()" class="btn btn-primary">Añadir</button>
+    </div>
+    <table class="table table-hover">
+        <thead class="table-header">
+            <tr>
+                <th>URL</th>
+                <th>Metodo</th>
+                <th>Acciones</th>            
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let permiso of permisos">
+                <td>{{ permiso.url }}</td>
+                <td>{{ permiso.metodo }}</td>            
+                <td>
+                    <button (click)="actualizarPermiso(permiso._id)" class="btn btn-edit">Editar</button>
+                    <button (click)="eliminarPermiso(permiso._id)" class="btn btn-delete" style="margin-left: 10px;">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

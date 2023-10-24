@@ -1,0 +1,27 @@
+<!-- usuarios.component.html -->
+<div class="users-list">
+    <h1 class="text-center">Lista de Partido</h1>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button (click)="irALaCrearDePartido()" class="btn btn-primary">Añadir</button>
+    </div>
+    <table class="table table-hover">
+        <thead class="table-header">
+            <tr>
+                <th>nombrePatido</th>
+                <th>lema</th>
+                <th>inscritos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let partido of partido">
+                <td>{{ partido.nombrePatido }}</td>
+                <td>{{ partido.lema }}</td>
+                <td>{{ partido.inscritos }}</td>
+                <td>
+                    <button (click)="actualizarPartido(partido._id)" class="btn btn-edit">Editar</button>
+                    <button (click)="eliminarPartido(partido._id)" class="btn btn-delete">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

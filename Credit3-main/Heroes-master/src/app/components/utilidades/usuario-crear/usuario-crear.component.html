@@ -1,0 +1,52 @@
+<div class="content mt-5">
+    <div class="col-md-6 offset-md-3">
+        <h3 class="text-center">Registrar Usuarios</h3>
+        <form (ngSubmit)="onSubmit()" #usuarioForm="ngForm">
+            <div class="form-group">
+                <label for="seudonimo">Seudonimo :</label>
+                <input type="text" class="form-control" id="seudonimo" placeholder="Nombre"
+                    [(ngModel)]="usuario.seudonimo" name="seudonimo" required placeholder="Digite un seudonimo"
+                    #seudonimo="ngModel">
+                <div class="alert alert-danger" *ngIf="seudonimo.invalid && (seudonimo.dirty || seudonimo.touched)">
+                    <div *ngIf="seudonimo.errors['required']">
+                        Digite el seudonimo por favor
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo :</label>
+                <input type="email" class="form-control" id="correo" placeholder="name@gmail.com"
+                    [(ngModel)]="usuario.correo" name="correo"
+                    pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required
+                    placeholder="Digite un email" #correo="ngModel"> <!-- Cambio aquí -->
+                <div class="alert alert-danger" *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+                    <div *ngIf="correo.errors['required']">
+                        Digite su email por favor
+                    </div>
+                    <div *ngIf="correo.errors['pattern']">
+                        Por favor digite el email con el siguiente formato: usuario55@gmail.com
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contrasena">Contrasena :</label>
+                <input type="password" class="form-control" id="contrasena" [(ngModel)]="usuario.contrasena"
+                    name="contrasena" required minlength="6" maxlength="16" placeholder="Digite una contrasena"
+                    #contrasena="ngModel">
+                <div class="alert alert-danger" *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)">
+                    <div *ngIf="contrasena.errors['required']">
+                        Digite la contrasena por favor
+                    </div>
+                    <div *ngIf="contrasena.errors['minlength']">
+                        la Contraseña debe tener como minimo 6 carateres
+                    </div>
+                    <div *ngIf="contrasena.errors['maxlength']">
+                        la Contraseña debe tener como maximo 16 carateres
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success btn-block" [disabled]="!usuarioForm.form.valid">Guardar</button>
+            <button (click)="irALaListaDeUsuario()" class="btn btn-primary">Cancelar</button>
+        </form>
+    </div>
+</div>

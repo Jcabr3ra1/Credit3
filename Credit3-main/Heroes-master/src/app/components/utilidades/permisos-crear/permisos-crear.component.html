@@ -1,0 +1,29 @@
+<div class="content">
+    <div class="col-md-6 offset-md-3">
+        <h3 class="text-center">Registrar Permisos</h3>
+        <form (ngSubmit)="onSubmit()" #permisoForm="ngForm">
+            <div class="form-group">
+                <label>URL : </label>
+                <input type="text" class="form-control" id="url" [(ngModel)]="permiso.url" name="url" required
+                    placeholder="Digite una url" #url="ngModel">
+                <div class="alert alert-danger" *ngIf="url.invalid && (url.dirty || url.touched)">
+                    <div *ngIf="url.errors['required']">
+                        Digite la url por favor
+                    </div>
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label>Metodo : </label>
+                <input type="text" class="form-control" id="metodo" [(ngModel)]="permiso.metodo" name="metodo" required
+                    placeholder="/POST, /PUT, /DELET y /GET" #metodo="ngModel">
+                <div class="alert alert-danger" *ngIf="metodo.invalid && (metodo.dirty || metodo.touched)">
+                    <div *ngIf="metodo.errors['required']">
+                        Digite el metodo por favor
+                    </div>
+                </div>
+            </div><br>
+            <button class="btn btn-success btn-block" [disabled]="!permisoForm.form.valid">Guardar</button>
+            <button (click)="irALaListaDePermiso()" class="btn btn-primary">Cancelar</button>
+        </form><br>
+    </div>
+</div>

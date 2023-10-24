@@ -1,0 +1,55 @@
+<div class="content mt-5">
+    <div class="col-md-6 offset-md-3">
+        <h3 class="text-center">Actualizar Partido</h3>
+        <form (submit)="actualizarPartido()" #partidoForm="ngForm">
+            <div class="form-group">
+                <label for="nombrePatido">nombrePatido :</label>
+                <input type="text" class="form-control" id="nombrePatido" placeholder="Nombre"
+                    [(ngModel)]="partido.nombrePatido" name="nombrePatido" required placeholder="Digite un nombrePatido"
+                    #nombrePatido="ngModel">
+                <div class="alert alert-danger" *ngIf="nombrePatido.invalid && (nombrePatido.dirty || nombrePatido.touched)">
+                    <div *ngIf="nombrePatido.errors['required']">
+                        Digite el nombrePatido por favor
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lema">lema :</label>
+                <input type="password" class="form-control" id="lema" [(ngModel)]="partido.lema"
+                    name="lema" required minlength="6" maxlength="16" placeholder="Digite una lema"
+                    #lema="ngModel">
+                <div class="alert alert-danger" *ngIf="lema.invalid && (lema.dirty || lema.touched)">
+                    <div *ngIf="lema.errors['required']">
+                        Digite la lema por favor
+                    </div>
+                    <div *ngIf="lema.errors['minlength']">
+                        la Contraseña debe tener como minimo 6 carateres
+                    </div>
+                    <div *ngIf="lema.errors['maxlength']">
+                        la Contraseña debe tener como maximo 16 carateres
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lema">lema :</label>
+                <input type="password" class="form-control" id="lema" [(ngModel)]="partido.lema"
+                    name="lema" required minlength="6" maxlength="16" placeholder="Digite una lema"
+                    #lema="ngModel">
+                <div class="alert alert-danger" *ngIf="lema.invalid && (lema.dirty || lema.touched)">
+                    <div *ngIf="lema.errors['required']">
+                        Digite la lema por favor
+                    </div>
+                    <div *ngIf="lema.errors['minlength']">
+                        la Contraseña debe tener como minimo 6 carateres
+                    </div>
+                    <div *ngIf="lema.errors['maxlength']">
+                        la Contraseña debe tener como maximo 16 carateres
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!partidoForm.form.valid">Actualizar</button>
+            <button (click)="irALaListaDePartido()" class="btn btn-primary">Cancelar</button>
+        </form>
+    </div>
+  </div>
+  

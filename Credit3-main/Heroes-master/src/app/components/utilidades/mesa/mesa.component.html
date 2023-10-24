@@ -1,0 +1,25 @@
+<!-- usuarios.component.html -->
+<div class="users-list">
+    <h1 class="text-center">Lista de mesas</h1>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button (click)="irALaCrearDeMesa()" class="btn btn-primary">Añadir</button>
+    </div>
+    <table class="table table-hover">
+        <thead class="table-header">
+            <tr>
+                <th>Nume de mesas</th>
+                <th>Incritos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of mesa">
+                <td>{{ usuario.numMesas }}</td>
+                <td>{{ usuario.inscritos }}</td>
+                <td>
+                    <button (click)="actualizarMesa(usuario._id)" class="btn btn-edit">Editar</button>
+                    <button (click)="eliminarMesa(usuario._id)" class="btn btn-delete">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

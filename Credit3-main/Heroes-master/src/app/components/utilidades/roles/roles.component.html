@@ -1,0 +1,25 @@
+<div class="roles-list">
+    <h1 class="text-center">Lista de Roles</h1>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button (click)="irALaCrearDeRol()" class="btn btn-primary">Añadir</button>
+    </div>    
+        <table class="table table-hover">
+            <thead class="table-header">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rol of roles">
+                    <td>{{ rol.nombre }}</td>
+                    <td>{{ rol.descripcion }}</td>
+                    <td>
+                        <button (click)="actualizarRol(rol._id)" class="btn btn-edit">Editar</button>
+                        <button (click)="eliminarRol(rol._id)" class="btn btn-delete">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>        
+</div>

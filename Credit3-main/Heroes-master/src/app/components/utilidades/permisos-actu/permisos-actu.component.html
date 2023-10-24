@@ -1,0 +1,25 @@
+<h2>Actualizar Permiso</h2>
+<form (submit)="actualizarPermiso()" #permisoForm="ngForm">
+  <div class="form-group">
+    <label for="seudonimo">URL:</label>
+    <input type="text" id="url" name="url" [(ngModel)]="permiso.url" class="form-control" required
+      placeholder="Digite una url" #url="ngModel">
+    <div class="alert alert-danger" *ngIf="url.invalid && (url.dirty || url.touched)">
+      <div *ngIf="url.errors['required']">
+        Digite la url por favor
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="correo">Correo:</label>
+    <input type="text" id="metodo" name="metodo" [(ngModel)]="permiso.metodo" class="form-control" required
+      placeholder="/POST, /PUT, /DELET y /GET" #metodo="ngModel">
+    <div class="alert alert-danger" *ngIf="metodo.invalid && (metodo.dirty || metodo.touched)">
+      <div *ngIf="metodo.errors['required']">
+        Digite el metodo por favor
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success btn-block" [disabled]="!permisoForm.form.valid">Actualizar</button>
+  <button (click)="irALaListaDePermiso()" class="btn btn-primary">Cancelar</button>
+</form>

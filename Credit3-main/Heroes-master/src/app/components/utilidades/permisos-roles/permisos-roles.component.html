@@ -1,0 +1,80 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">Crear Asignación</h2>
+            <form (submit)="createAssignment()">
+              <div class="form-group">
+                <label>Rol ID:</label>
+                <input [(ngModel)]="idRol" name="idRol" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label>Permiso ID:</label>
+                <input [(ngModel)]="idPermiso" name="idPermiso" class="form-control" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Crear</button>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">Obtener Asignación por ID</h2>
+            <form>
+              <div class="form-group">
+                <label>ID de Asignación:</label>
+                <input [(ngModel)]="assignmentId" name="assignmentId" class="form-control" required>
+              </div>
+              <button (click)="getAssignment(assignmentId)" class="btn btn-primary">Obtener</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mostrar la asignación obtenida si es necesario -->
+  
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">Actualizar Asignación</h2>
+            <form>
+              <div class="form-group">
+                <label>ID de Asignación:</label>
+                <input [(ngModel)]="assignmentId" name="assignmentId" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label>Nuevo Rol ID:</label>
+                <input [(ngModel)]="idRol" name="idRol" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label>Nuevo Permiso ID:</label>
+                <input [(ngModel)]="idPermiso" name="idPermiso" class="form-control" required>
+              </div>
+              <button (click)="updateAssignment(assignmentId)" class="btn btn-primary">Actualizar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">Eliminar Asignación</h2>
+            <form>
+              <div class="form-group">
+                <label>ID de Asignación:</label>
+                <input [(ngModel)]="assignmentId" name="assignmentId" class="form-control" required>
+              </div>
+              <button (click)="deleteAssignment(assignmentId)" class="btn btn-danger">Eliminar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,27 @@
+<div class="content">
+  <h2>Actualizar Rol</h2>
+  <form (submit)="actualizarRol()" #rolForm="ngForm">
+    <div class="form-group">
+      <label for="seudonimo">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" [(ngModel)]="rol.nombre" class="form-control" required
+        placeholder="Digite una nombre" #nombre="ngModel">
+      <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+        <div *ngIf="nombre.errors['required']">
+          Digite el nombre del rol por favor
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="correo">Descripcion:</label>
+      <input type="text" id="descripcion" name="descripcion" [(ngModel)]="rol.descripcion" class="form-control" required
+        placeholder="Digite una descripcion" #descripcion="ngModel">
+      <div class="alert alert-danger" *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+        <div *ngIf="descripcion.errors['required']">
+          Digite la descripcion por favor
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success btn-block" [disabled]="!rolForm.form.valid">Actualizar</button>
+    <button (click)="irALaListaDeRol()" class="btn btn-primary">Cancelar</button>
+  </form>
+</div>

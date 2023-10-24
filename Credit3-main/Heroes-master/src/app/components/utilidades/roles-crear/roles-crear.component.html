@@ -1,0 +1,30 @@
+<div class="content">
+    <div class="col-md-6 offset-md-3">
+        <h3 class="text-center">Registrar Rol</h3>
+        <form (ngSubmit)="onSubmit()" #rolForm="ngForm">
+            <div class="form-group">
+                <label>Nombre : </label>
+                <input type="text" class="form-control" id="nombre" [(ngModel)]="rol.nombre" name="nombre" required
+                    placeholder="Digite una nombre" #nombre="ngModel">
+                <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                    <div *ngIf="nombre.errors['required']">
+                        Digite el nombre del rol por favor
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Descripcion : </label>
+                <input type="text" class="form-control" id="descripcion" [(ngModel)]="rol.descripcion"
+                    name="descripcion" required placeholder="Digite una descripcion" #descripcion="ngModel">
+                <div class="alert alert-danger"
+                    *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+                    <div *ngIf="descripcion.errors['required']">
+                        Digite la descripcion por favor
+                    </div>
+                </div>
+            </div><br>
+            <button class="btn btn-success btn-block" [disabled]="!rolForm.form.valid">Guardar</button>
+            <button (click)="irALaListaDeRol()" class="btn btn-primary">Cancelar</button>
+        </form>
+    </div>
+</div>
